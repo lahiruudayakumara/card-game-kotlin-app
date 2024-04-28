@@ -1,7 +1,5 @@
 package com.example.cardgame
 
-
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
@@ -9,12 +7,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
-import android.widget.Switch
 import android.widget.TextView
-import android.widget.Toast
-import android.widget.ToggleButton
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
@@ -80,11 +74,8 @@ class MainActivity : AppCompatActivity() {
         tv_war = findViewById(R.id.tv_war)
         b_deal = findViewById(R.id.b_deal)
 
-
-
         // Restore player names from SharedPreferences if available
         tv_player1.text = "$player1Name : $player1"
-//        tv_player2.text = "Player 2 : $player2"
 
         //add backcard
         iv_card1.setImageResource(R.drawable.card_back)
@@ -143,37 +134,11 @@ class MainActivity : AppCompatActivity() {
     private fun winCheck(player1:Int, player2: Int ) {
         if (player1 == 10 || player2 == 10) {
             if(player1 == 10) {
-//                val builder = AlertDialog.Builder(this)
-//                val inflater = layoutInflater
-//                val dialogLayout = inflater.inflate(R.layout.win_dialog_layout, null)
-//                val btnWinBackToMenu = dialogLayout.findViewById<Button>(R.id.btn_win_close)
-//                btnWinBackToMenu.setOnClickListener {
-//                    val intent = Intent(this, HomeActivity::class.java)
-//                    startActivities(arrayOf(intent));
-//                }
                 val intent = Intent(this, WinActivity::class.java)
                 startActivities(arrayOf(intent));
-//                builder.setView(dialogLayout)
-
-                // Create and show the AlertDialog
-//                val dialog = builder.create()
-//                dialog.show()
             } else {
-//                val builder = AlertDialog.Builder(this)
-//                val inflater = layoutInflater
-//                val dialogLayout = inflater.inflate(R.layout.lose_dialog_layout, null)
-//                val btnLoseBackToMenu = dialogLayout.findViewById<Button>(R.id.btn_lose_close)
-//                btnLoseBackToMenu.setOnClickListener {
-//                    val intent = Intent(this, HomeActivity::class.java)
-//                    startActivities(arrayOf(intent));
-//                }
                 val intent = Intent(this, LoseActivity::class.java)
                 startActivities(arrayOf(intent));
-//                builder.setView(dialogLayout)
-//
-//                // Create and show the AlertDialog
-//                val dialog = builder.create()
-//                dialog.show()
             }
         }
     }
